@@ -1,5 +1,4 @@
 import React from "react"
-import { useFider } from "@fider/hooks"
 import { classSet } from "@fider/services"
 
 import "./PoweredByFider.scss"
