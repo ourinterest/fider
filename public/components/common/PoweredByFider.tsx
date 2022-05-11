@@ -10,11 +10,6 @@ interface PoweredByFiderProps {
 }
 
 export const PoweredByFider = (props: PoweredByFiderProps) => {
-  const fider = useFider()
-
-  const source = encodeURIComponent(fider.session.tenant.subdomain)
-  const medium = "powered-by"
-  const campaign = props.slot
 
   const className = classSet({
     "c-powered": true,
@@ -23,6 +18,9 @@ export const PoweredByFider = (props: PoweredByFiderProps) => {
 
   return (
     <div className={className}>
+      <a rel="noopener" href={`https://hypoteket.com/`} target="_blank">
+        Hypoteket.com
+      </a>
     </div>
   )
 }
