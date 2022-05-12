@@ -16,9 +16,9 @@ const CACHE_DESCRIPTION_KEY = "PostInput-Description"
 
 export const PostInput = (props: PostInputProps) => {
   const getCachedValue = (key: string): string => {
-    if (fider.session.isAuthenticated) {
-      return cache.session.get(key) || ""
-    }
+    // if (fider.session.isAuthenticated) {
+    //   return cache.session.get(key) || ""
+    // }
     return ""
   }
 
