@@ -20,6 +20,9 @@ func SendInvites(subject, message string, invitations []*actions.UserInvitation)
 	return describe("Send invites", func(c *worker.Context) error {
 		to := make([]dto.Recipient, len(invitations))
 		for i, invite := range invitations {
+			if !strings.HasSuffix(invite.Email, "@hypoteket.com") {
+				return c.Failure(fmt.Errorf("%s is not a valid email address", invite.Email))
+			}
 			err := bus.Dispatch(c, &cmd.SaveVerificationKey{
 				Key:      invite.VerificationKey,
 				Duration: 15 * 24 * time.Hour,
