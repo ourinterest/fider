@@ -52,12 +52,6 @@ func SendInvites() web.HandlerFunc {
 			return c.HandleValidation(result)
 		}
 
-		for i, invite := range actions.InviteUsers {
-			if !strings.HasSuffix(invite.Email, "@hypoteket.com") {
-				return c.Failure(fmt.Errorf("%s is not a valid email address", invite.Email))
-			}
-		}
-
 		log.Warnf(c, "@{Tenant:magenta} sent @{TotalInvites:magenta} invites", dto.Props{
 			"Tenant":       c.Tenant().Subdomain,
 			"TotalInvites": len(action.Invitations),
