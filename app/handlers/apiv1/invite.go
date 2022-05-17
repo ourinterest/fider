@@ -1,7 +1,6 @@
 package apiv1
 
 import (
-	"fmt"
 	"strings"
 
 	"github.com/getfider/fider/app"
